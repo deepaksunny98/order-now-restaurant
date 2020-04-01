@@ -1,0 +1,49 @@
+.jumbotron {
+    padding: 0.5rem 1rem;
+    /* display: flex; */
+     justify-content: space-between;
+     margin-bottom: 0.5rem;
+     /* width: 800px; */
+ 
+ }
+ .back-btn {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    width: 95%;
+}
+.rest {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#accordion {
+    width: 90%;
+}
+
+.card-link {
+    display: flex;
+}
+
+.card {
+    margin-bottom: 10px;
+    border-radius:20px;
+}
+
+.labels {
+    margin: 10px;
+    width: 90%;
+    display: flex;
+    background: black;
+    padding: 8px;
+}
+
+label {
+    font-weight: 500;
+}

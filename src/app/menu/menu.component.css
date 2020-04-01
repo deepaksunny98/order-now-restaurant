@@ -1,0 +1,88 @@
+.card-body h5{
+    font-size: 17px;
+    font-weight: 500;
+    word-break: break-word;
+}
+.card-header {
+    padding: 0px;
+    border-bottom: none;
+}
+/* .card-body {
+    /* padding: 10px; */
+/* }  */
+.card {
+    width:400px;
+    height: 350px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+.jumbotron {
+   padding: 0.5rem 1rem;
+   /* display: flex; */
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    /* width: 800px; */
+
+}
+.card-header img {
+    height: 250px;
+    border-radius: 20px;
+}
+.price {
+    /* width: 15%; */
+    text-align: center;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    width: 95%;
+}
+
+.rest {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: lightseagreen;
+}
+
+.btn {
+    /* align-self: flex-end; */
+    margin: 10px;
+}
+label {
+    font-weight: bold;
+}
+
+.marginleft20 {
+    margin-left: 20px;
+    font-size: 25px;
+}
+
+.title {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+}
+
+.width65 {
+    width: 65px !important;
+}
+.back-btn {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+.headers {
+    display: flex;
+    flex-direction: column;;
+}
+
+.buttons {
+cursor: pointer;
+}
