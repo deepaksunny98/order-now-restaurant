@@ -6,20 +6,25 @@ import { MenuComponent } from './menu/menu.component';
 import { TableComponent } from './table/table.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OrdersComponent } from './orders/orders.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-{path: '', redirectTo: '/login', pathMatch: 'full'},
-{path: 'login', component: LoginComponent},
-{path: 'dashboard', component: DashboardComponent},
-{path: 'menu', component: MenuComponent},
-{path: 'sidebar', component: SidebarComponent},
-{path: 'order', component: OrdersComponent},
-{path: 'table', component: TableComponent},
-{ path: '**', redirectTo: '' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] },
+  { path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
+  { path: 'order', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'table', component: TableComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

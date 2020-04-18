@@ -13,6 +13,8 @@ import { ItemsComponent } from './items/items.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersComponent } from './orders/orders.component';
+import { HttpInterceptProviders } from './http-interceptors';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { OrdersComponent } from './orders/orders.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard, HttpInterceptProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

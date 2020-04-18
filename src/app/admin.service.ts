@@ -14,6 +14,10 @@ export class AdminService {
       .toPromise();
   }
 
+  getRestaurantByUserId(userId: number) {
+    return this.httpClient.get(`${environment.API_URL}/admin/getRestaurantByUserId?userId=${userId}`)
+  }
+
   getTables() {
     return this.httpClient.get(environment.API_URL + 'tables');
   }
@@ -29,7 +33,7 @@ export class AdminService {
 
   getMenu(id) {
     return this.httpClient.get(
-      environment.API_URL + 'getMenu?restaurantId=' + id
+      environment.API_URL + '/admin/getMyMenu?restaurantId=' + id
     );
   }
   createMenu(data) {
