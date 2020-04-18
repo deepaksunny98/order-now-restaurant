@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: AdminService) { }
   profileForm: FormGroup;
   ngOnInit() {
    sessionStorage.setItem('login', 'false');
@@ -19,10 +20,13 @@ export class LoginComponent implements OnInit {
     });
   }
   onSubmit(data) {
-    if (data.username === 'Restuarent' && data.password === '123456') {
-      sessionStorage.setItem('login', 'true');
-       this.router.navigateByUrl('/sidebar');
-    }
+    this.service.login(data).then(res => {
+      console.log('jwt ---> ', res);
+    });
+    // if (data.username === 'admin' && data.password === 'admin') {
+    //   sessionStorage.setItem('login', 'true');
+    //    this.router.navigateByUrl('/sidebar');
+    // }
   }
 
 }

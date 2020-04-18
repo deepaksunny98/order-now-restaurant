@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  API_URL: 'http://15.206.88.14:3000/admin/'
+  apiUrl: 'http://15.222.239.16:3000',
+  socketUrl: 'ws://15.222.239.16:3000',
 };

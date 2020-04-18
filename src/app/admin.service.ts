@@ -3,29 +3,36 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
+  login(body) {
+    return this.httpClient
+      .post(environment.API_URL + '/admin/login', body)
+      .toPromise();
+  }
 
   getTables() {
-   return this.httpClient.get(environment.API_URL + 'tables');
+    return this.httpClient.get(environment.API_URL + 'tables');
   }
   editTable(data) {
     return this.httpClient.post(environment.API_URL + 'tables', data);
-   }
-   deleteTable(tableId) {
+  }
+  deleteTable(tableId) {
     return this.httpClient.delete(environment.API_URL + 'tables/' + tableId);
-   }
-   createTable(data) {
+  }
+  createTable(data) {
     return this.httpClient.post(environment.API_URL + 'tables', data);
-   }
+  }
 
-   getMenu(id) {
-    return this.httpClient.get(environment.API_URL + 'getMenu?restaurantId=' + id);
-   }
-   createMenu(data) {
+  getMenu(id) {
+    return this.httpClient.get(
+      environment.API_URL + 'getMenu?restaurantId=' + id
+    );
+  }
+  createMenu(data) {
     return this.httpClient.post(environment.API_URL + 'menu', data);
   }
   deleteMenu(menuId) {
