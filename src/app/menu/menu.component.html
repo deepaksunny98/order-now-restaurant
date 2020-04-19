@@ -1,132 +1,149 @@
 <div class="rest">
   <div class="title">
     <span class="back-btn" (click)="navigateBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
-    <button type="button" class="btn btn-success" (click)="openPopUp()" data-toggle="modal" data-target="#myModal">Add+</button>
+    <button type="button" class="btn btn-success" (click)="openPopUp()" data-toggle="modal"
+      data-target="#myModal">Add+</button>
   </div>
   <div *ngIf="Staters.length > 0" class="headers">
-  <h3 class="float-left" style="color: #fff">{{food.type1}}</h3>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th class="text-center">Item Name</th>
-        <th class="text-center">PreparationTime</th>
-        <th class="text-center">Amount</th>
-        <th class="text-center">Edit/Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let rest of Staters; let i = index"  class="jumbotron">
-        <td><span style="flex: 2;">
-          <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
-        </span></td>
-        <td> <span class="text-center" class="margin10">
-          <span style=" display: flex;
-          justify-content: space-evenly;" >
-          <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="subtract(rest)"></i>
-          <input  type="number" class="form-control" [(ngModel)] ="rest.PreparationTime">
-          <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="add(rest)"></i></span></span></td>
-        <td><input type="text" class="form-control price"  [(ngModel)]='rest.Amount'></td>
-        <td> <span class="buttons">
-          <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check " aria-hidden="true"></i></span>
-          <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-        </span></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-  <div *ngIf="maincourse.length > 0" class="headers">
-      <h3 class="float-left" style="color: #fff">{{food.type2}}</h3>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th class="text-center">Item Name</th>
-            <th class="text-center">PreparationTime</th>
-            <th class="text-center">Amount</th>
-            <th class="text-center">Edit/Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let rest of maincourse; let i = index"  class="jumbotron">
-            <td><span style="flex: 2;">
+    <h3 class="float-left" style="color: #fff">{{food.type1}}</h3>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Item Name</th>
+          <th class="text-center">PreparationTime</th>
+          <th class="text-center">Amount</th>
+          <th class="text-center">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rest of Staters; let i = index" class="jumbotron">
+          <td><span style="flex: 2;">
               <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
             </span></td>
-            <td> <span class="text-center" class="margin10">
+          <td> <span class="text-center" class="margin10">
               <span style=" display: flex;
-              justify-content: space-evenly;" >
-              <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="subtract(rest)"></i>
-              <input  type="number" class="form-control" [(ngModel)] ="rest.PreparationTime">
-              <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="add(rest)"></i></span></span></td>
-            <td><input type="text" class="form-control price"  [(ngModel)]='rest.Amount'></td>
-            <td> <span class="buttons">
-              <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check " aria-hidden="true"></i></span>
-              <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+          justify-content: space-evenly;">
+                <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="subtract(rest)"></i>
+                <input type="number" class="form-control" [(ngModel)]="rest.PreparationTime">
+                <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="add(rest)"></i></span></span></td>
+          <td><input type="text" class="form-control price" [(ngModel)]='rest.Amount'></td>
+          <td> <span class="buttons">
+              <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check "
+                  aria-hidden="true"></i></span>
+              <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson"><i class="fa fa-trash-o"
+                  aria-hidden="true"></i></span>
             </span></td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-      <div *ngIf="beverages.length > 0" class="headers">
-          <h3 class="float-left" style="color: #fff">{{food.type3}}</h3>
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th class="text-center">Item Name</th>
-                <th class="text-center">PreparationTime</th>
-                <th class="text-center">Amount</th>
-                <th class="text-center">Edit/Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let rest of beverages; let i = index"  class="jumbotron">
-                <td><span style="flex: 2;">
-                  <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
-                </span></td>
-                <td> <span class="text-center" class="margin10">
-                  <span style=" display: flex;
-                  justify-content: space-evenly;" >
-                  <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="subtract(rest)"></i>
-                  <input  type="number" class="form-control" [(ngModel)] ="rest.PreparationTime">
-                  <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="add(rest)"></i></span></span></td>
-                <td><input type="text" class="form-control price"  [(ngModel)]='rest.Amount'></td>
-                <td> <span class="buttons">
-                  <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check " aria-hidden="true"></i></span>
-                  <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                </span></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-          <div *ngIf="others.length > 0" class="headers">
-              <h3 class="float-left" style="color: #fff">{{food.type4}}</h3>
-              <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th class="text-center">Item Name</th>
-                    <th class="text-center">PreparationTime</th>
-                    <th class="text-center">Amount</th>
-                    <th class="text-center">Edit/Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let rest of others; let i = index"  class="jumbotron">
-                    <td><span style="flex: 2;">
-                      <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
-                    </span></td>
-                    <td> <span class="text-center" class="margin10">
-                      <span style=" display: flex;
-                      justify-content: space-evenly;" >
-                      <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="subtract(rest)"></i>
-                      <input  type="number" class="form-control" [(ngModel)] ="rest.PreparationTime">
-                      <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;" (click)="add(rest)"></i></span></span></td>
-                    <td><input type="text" class="form-control price"  [(ngModel)]='rest.Amount'></td>
-                    <td> <span class="buttons">
-                      <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check " aria-hidden="true"></i></span>
-                      <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                    </span></td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="maincourse.length > 0" class="headers">
+    <h3 class="float-left" style="color: #fff">{{food.type2}}</h3>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Item Name</th>
+          <th class="text-center">PreparationTime</th>
+          <th class="text-center">Amount</th>
+          <th class="text-center">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rest of maincourse; let i = index" class="jumbotron">
+          <td><span style="flex: 2;">
+              <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
+            </span></td>
+          <td> <span class="text-center" class="margin10">
+              <span style=" display: flex;
+              justify-content: space-evenly;">
+                <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="subtract(rest)"></i>
+                <input type="number" class="form-control" [(ngModel)]="rest.PreparationTime">
+                <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="add(rest)"></i></span></span></td>
+          <td><input type="text" class="form-control price" [(ngModel)]='rest.Amount'></td>
+          <td> <span class="buttons">
+              <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check "
+                  aria-hidden="true"></i></span>
+              <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson"><i class="fa fa-trash-o"
+                  aria-hidden="true"></i></span>
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="beverages.length > 0" class="headers">
+    <h3 class="float-left" style="color: #fff">{{food.type3}}</h3>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Item Name</th>
+          <th class="text-center">PreparationTime</th>
+          <th class="text-center">Amount</th>
+          <th class="text-center">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rest of beverages; let i = index" class="jumbotron">
+          <td><span style="flex: 2;">
+              <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
+            </span></td>
+          <td> <span class="text-center" class="margin10">
+              <span style=" display: flex;
+                  justify-content: space-evenly;">
+                <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="subtract(rest)"></i>
+                <input type="number" class="form-control" [(ngModel)]="rest.PreparationTime">
+                <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="add(rest)"></i></span></span></td>
+          <td><input type="text" class="form-control price" [(ngModel)]='rest.Amount'></td>
+          <td> <span class="buttons">
+              <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check "
+                  aria-hidden="true"></i></span>
+              <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson"><i class="fa fa-trash-o"
+                  aria-hidden="true"></i></span>
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="others.length > 0" class="headers">
+    <h3 class="float-left" style="color: #fff">{{food.type4}}</h3>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Item Name</th>
+          <th class="text-center">PreparationTime</th>
+          <th class="text-center">Amount</th>
+          <th class="text-center">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rest of others; let i = index" class="jumbotron">
+          <td><span style="flex: 2;">
+              <input type="text" class="form-control" style="font-weight: 600;" [(ngModel)]="rest.Name">
+            </span></td>
+          <td> <span class="text-center" class="margin10">
+              <span style=" display: flex;
+                      justify-content: space-evenly;">
+                <i class="fa fa-minus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="subtract(rest)"></i>
+                <input type="number" class="form-control" [(ngModel)]="rest.PreparationTime">
+                <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px; margin-top: 10px;"
+                  (click)="add(rest)"></i></span></span></td>
+          <td><input type="text" class="form-control price" [(ngModel)]='rest.Amount'></td>
+          <td> <span class="buttons">
+              <span (click)="editItem(rest)" class="marginleft20" style="color: green;"><i class="fa fa-check "
+                  aria-hidden="true"></i></span>
+              <span (click)="deleteItem(rest,i)" class="marginleft20" style="color: crimson"><i class="fa fa-trash-o"
+                  aria-hidden="true"></i></span>
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <!-- <div *ngIf="Staters.length > 0" class="headers">
   <h3 class="float-left" style="color: #fff">{{food.type1}}</h3>
 <div *ngFor="let rest of Staters; let i = index">
@@ -212,43 +229,48 @@
 </div>
 </div>
 </div> -->
-<div id="myModal" class="modal fade" role="dialog">
+  <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Add Items</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <form [formGroup]="addItemForm">
-              <div class="form-group">
-                  <label for="text">Item Name</label>
-                  <input type="text" class="form-control" formControlName="Name" id="text" >
-                </div>
-                <div class="form-group">
-                    <label for="time">Time Required</label>
-                    <input type="number" class="form-control" formControlName="PreparationTime" id="time" >
-                  </div>
-                <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="number" class="form-control" formControlName="Amount" id="price" >
-                </div>
-                <div class="form-group">
-            <label for="sel1">Category</label>
-            <select class="form-control" formControlName="CategoryId"  id="sel1" >
-              <option value= '0'>{{food.type1}}</option>
-              <option value= '1'>{{food.type2}}</option>
-              <option value= '2'>{{food.type3}}</option>
-              <option value= '3'>{{food.type4}}</option>
-            </select>
-          </div>
-                
-              </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" [disabled]="!addItemForm.valid" (click)="SaveItem(addItemForm.value)" data-dismiss="modal">Save</button>
-          </div>
-    
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Items</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+        <div class="modal-body">
+          <form [formGroup]="addItemForm">
+            <div class="form-group">
+              <label for="text">Item Name</label>
+              <input type="text" class="form-control" formControlName="Name" id="text">
+            </div>
+            <div class="form-group">
+              <label for="text">Image Url</label>
+              <input type="text" class="form-control" formControlName="ImageUrl" id="ImageUrl">
+            </div>
+            <div class="form-group">
+              <label for="time">Time Required</label>
+              <input type="number" class="form-control" formControlName="PreparationTime" id="time">
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="number" class="form-control" formControlName="Amount" id="price">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Category</label>
+              <select class="form-control" formControlName="Type" id="sel1">
+                <option value={{food.type1}}>{{food.type1}}</option>
+                <option value={{food.type2}}>{{food.type2}}</option>
+                <option value={{food.type3}}>{{food.type3}}</option>
+                <option value={{food.type4}}>{{food.type4}}</option>
+              </select>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" [disabled]="!addItemForm.valid"
+            (click)="SaveItem(addItemForm.value)" data-dismiss="modal">Save</button>
+        </div>
+
       </div>
-</div>
+    </div>
+  </div>

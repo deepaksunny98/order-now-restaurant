@@ -9,36 +9,39 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  restuarentId: number;
   addTableForm = this.fb.group({
     TableNo: ['', Validators.required],
-    Status: ['', Validators.required],
+    Status: [''],
     Size: ['', Validators.required],
-    Time: ['', Validators.required]
+    Time: ['']
   });
   constructor(private location: Location, private fb: FormBuilder, private service: AdminService) { }
-  // Tables: any;
-  Tables = [
-    {TableNo: 1, Status: 'RES', Size: 4, Time: '40'},
-    {TableNo: 1, Status: 'RES', Size: 4, Time: '40'},
-    {TableNo: 1, Status: 'RES', Size: 4, Time: '40'},
-    {TableNo: 1, Status: 'RES', Size: 4, Time: '40'}
-  ];
+  Tables: any;
   ngOnInit() {
-    // this.getTables();
+    this.restuarentId = +sessionStorage.getItem('restaurantId');
+    this.getTables();
   }
   navigateBack() {
     this.location.back();
   }
   SaveTable(data) {
-    data.RestaurantId = 2;
-    this.service.createTable(data).subscribe(res => {
+    const createTableJson = {
+      TableNo: data.TableNo,
+      RestaurantId: this.restuarentId,
+      Size: data.Size
+    };
+    this.service.createTable(createTableJson).subscribe(res => {
       this.getTables();
     });
   }
 
   getTables() {
-  this.service.getTables().subscribe( res => {
-    // this.Tables = res;
+  this.service.getTables(this.restuarentId).subscribe( res => {
+    if(res) {
+      this.Tables = res;
+    }
+    console.log('this.Tables', this.Tables);
     });
   }
   add(data) {
