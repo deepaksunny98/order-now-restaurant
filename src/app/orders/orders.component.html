@@ -7,9 +7,9 @@
     <h6 style="flex:1; color: #fff;" class="text-center">Order Id</h6>
     <h6 style="flex:1; color: #fff;" class="text-center">Table No</h6>
     <h6 style="flex:1; color: #fff;" class="text-center">Amount</h6>
-    <h6 style="flex:1; color: #fff;" class="text-center">Preparation Time</h6>
+    <!-- <h6 style="flex:1; color: #fff;" class="text-center">Preparation Time</h6> -->
     <h6 style="flex:1; color: #fff;" class="text-center">Ordered Time</h6>
-    <h6 style="flex:1; color: #fff;" class="text-center">EditOrder</h6>
+    <!-- <h6 style="flex:1; color: #fff;" class="text-center">EditOrder</h6> -->
   </div>
   <div id="accordion">
     <div  *ngFor="let order of orders; let i = index">
@@ -18,10 +18,10 @@
         <a class="card-link" data-toggle="collapse" href="#collapseOne{{i}}">
           <h6 style="flex: 1;" class="text-center">{{order.orderId}}</h6>
           <h6 style="flex: 1;" class="text-center">{{order.tableNo}}</h6>
-          <h6 style="flex: 1;" class="text-center">{{order.amount}}</h6>
-          <h6 style="flex: 1;" class="text-center">{{order.preparationTime}}</h6>
+          <h6 style="flex: 1;" class="text-center">${{order.amount}}</h6>
+          <!-- <h6 style="flex: 1;" class="text-center">{{order.preparationTime}}</h6> -->
           <h6 style="flex: 1;" class="text-center">{{order.orderedTime}}</h6>
-          <h6  style="flex: 1; color: green; font-size: 19px;" class="text-center" (click)="editOrder(order)" data-toggle="modal" data-target="#myModal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></h6>
+          <!-- <h6  style="flex: 1; color: green; font-size: 19px;" class="text-center" (click)="editOrder(order)" data-toggle="modal" data-target="#myModal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></h6> -->
            
         </a>
       </div>
@@ -30,8 +30,8 @@
           <div style="width: 50%;">
             <div *ngFor="let menu of order.menuItems" style="display: flex; justify-content:space-around">
               <h5 style="width: 200px">{{menu.item}}</h5>
-              <p style="width: 75px;">quantity: {{menu.quantity}}</p>
-              <p><i class="fa fa-inr" aria-hidden="true"></i>{{menu.price}}</p>
+              <p style="width: 75px;">Qty: {{menu.quantity}}</p>
+              <p>${{menu.price}}</p>
             </div>
           </div>
             <div style="width: 50%;display: flex;

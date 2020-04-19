@@ -1,10 +1,10 @@
 <div class="rest">
-    <div class="title">
-     <span class="back-btn" (click)="navigateBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
-        <h3 class="float-left" style="color: #fff">Tables</h3>
-           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add+</button>
-    </div>
-<!-- <div *ngFor="let table of Tables">
+  <div class="title">
+    <span class="back-btn" (click)="navigateBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+    <h3 class="float-left" style="color: #fff">Tables</h3>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add+</button>
+  </div>
+  <!-- <div *ngFor="let table of Tables">
     <div class="jumbotron">
         <input type="text" class="form-control" style="font-weight: 600; flex: 1;" [(ngModel)]="table.TableNo">
     <span style="flex:2; display: flex; justify-content: center;">
@@ -31,73 +31,78 @@
               </span>
     </div>
 </div> -->
-<div *ngIf="Tables && Tables.length > 0" class="headers">
+  <div *ngIf="Tables && Tables.length > 0" class="headers">
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th class="text-center">TableNo</th>
           <th class="text-center">TableSize</th>
-          <th class="text-center">Time</th>
+          <!-- <th class="text-center">Time</th> -->
           <th class="text-center">Status</th>
           <th class="text-center">Edit/Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let table of Tables; let i = index"  class="jumbotron">
+        <tr *ngFor="let table of Tables; let i = index" class="jumbotron">
           <td><span style="flex: 2;">
-              <input type="text" class="form-control text-center" style="font-weight: 600; flex: 1;" [(ngModel)]="table.TableNo">
-          </span></td>
-          <td>   <span style="flex:2; display: flex; justify-content: center;">
+              <input type="text" class="form-control text-center" style="font-weight: 600; flex: 1;"
+                [(ngModel)]="table.TableNo">
+            </span></td>
+          <td> <span style="flex:2; display: flex; justify-content: center;">
               <span class="size">
-                  <i class="fa fa-minus-square" style="cursor: pointer;"  aria-hidden="true" (click)="subtract(table)"></i>
-                  <input  class="form-control text-center" [(ngModel)] ="table.Size">
-                  <i class="fa fa-plus-square" style="cursor: pointer;" aria-hidden="true" (click)="add(table)" ></i>
+                <i class="fa fa-minus-square" style="cursor: pointer;" aria-hidden="true" (click)="subtract(table)"></i>
+                <input class="form-control text-center" [(ngModel)]="table.Size">
+                <i class="fa fa-plus-square" style="cursor: pointer;" aria-hidden="true" (click)="add(table)"></i>
               </span>
-          </span></td>
-          <td><span style="flex:2; display: flex; justify-content: center;">
-              <input  type="text"  class="form-control text-center" [(ngModel)]='table.Time'>
-          </span></td>
-          <td>  <div class="form-group" style="flex:2; margin-bottom: 0px; margin: 5px; display: flex;
+            </span></td>
+          <!-- <td><span style="flex:2; display: flex; justify-content: center;">
+              <input type="text" class="form-control text-center" [(ngModel)]='table.Time'>
+            </span></td> -->
+          <td>
+            <div class="form-group" style="flex:2; margin-bottom: 0px; margin: 5px; display: flex;
             justify-content: center; width: 100%">
-                    <select class="form-control"  id="sel1" [(ngModel)]='table.Status'>
-                      <option>{{table.Status}}</option>
-                    </select>
-                  </div></td>
+              <select class="form-control" id="sel1" [(ngModel)]='table.Status'>
+                <option>{{table.Status}}</option>
+              </select>
+            </div>
+          </td>
           <td><span class="buttons" style="cursor: pointer;">
-              <span (click)="editTable(table)" class="marginleft20" style="color: green;"><i class="fa fa-check " aria-hidden="true"></i></span>
-              <span (click)="deleteTable(table)" class="marginleft20" style="color: crimson" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+              <span (click)="editTable(table)" class="marginleft20" style="color: green;"><i class="fa fa-check "
+                  aria-hidden="true"></i></span>
+              <span (click)="deleteTable(table)" class="marginleft20" style="color: crimson"><i class="fa fa-trash-o"
+                  aria-hidden="true"></i></span>
             </span></td>
         </tr>
       </tbody>
     </table>
-    </div>
+  </div>
 </div>
 <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Add Table</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form [formGroup]="addTableForm">
-                  <div class="form-group">
-                      <label for="no">Table No</label>
-                      <input type="text" class="form-control" formControlName="TableNo" id="no" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="size">Size</label>
-                        <input type="number" class="form-control" formControlName="Size" id="size" required>
-                      </div>
-                      <!-- <div class="form-group">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Table</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addTableForm">
+          <div class="form-group">
+            <label for="no">Table No</label>
+            <input type="text" class="form-control" formControlName="TableNo" id="no" required>
+          </div>
+          <div class="form-group">
+            <label for="size">Size</label>
+            <input type="number" class="form-control" formControlName="Size" id="size" required>
+          </div>
+          <!-- <div class="form-group">
                             <label for="time">Time</label>
                             <input type="number" class="form-control" formControlName="Time" id="time" required>
                           </div> -->
-                    <!-- <div class="form-group">
+          <!-- <div class="form-group">
                       <label for="status">Status</label>
                       <input type="text" class="form-control" formControlName="Status" id="status">
                     </div> -->
-                    <!-- <div class="form-group">
+          <!-- <div class="form-group">
                             <label for="status">Status</label>
                          <select class="form-control"  formControlName="Status" id="status" required>
               <option>RES</option>
@@ -105,13 +110,14 @@
               <option>OC</option>
             </select>
           </div> -->
-                    
-                  </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" [disabled]="!addTableForm.valid" (click)="SaveTable(addTableForm.value)" data-dismiss="modal">Save</button>
-              </div>
-        
-            </div>
-          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" [disabled]="!addTableForm.valid"
+          (click)="SaveTable(addTableForm.value)" data-dismiss="modal">Save</button>
+      </div>
+
     </div>
+  </div>
+</div>

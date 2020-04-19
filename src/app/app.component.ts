@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
     //   username: ['', Validators.required],
     //   password: ['', Validators.required]
     // });
-    this.webSocketService.listen('ReceiveOrder').subscribe((data) => {
-      console.log('res from socket -> ', data);
-    });
+    if (!!sessionStorage.getItem('restaurantId')) {
+      this.webSocketService.connect();
+    }
     // this.webSocketService.emit('SendOrder', 'order details comes here');
   }
 }

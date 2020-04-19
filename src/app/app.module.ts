@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrdersComponent } from './orders/orders.component';
 import { HttpInterceptProviders } from './http-interceptors';
 import { AuthGuard } from './auth.guard';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthGuard } from './auth.guard';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthGuard, HttpInterceptProviders],
   bootstrap: [AppComponent]

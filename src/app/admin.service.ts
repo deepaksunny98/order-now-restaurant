@@ -47,6 +47,6 @@ export class AdminService {
   }
 
   getAllOrders(id) {
-    return this.httpClient.get(environment.API_URL + 'orderByResId/' + id);
+    return this.httpClient.get(environment.API_URL + '/admin/ordersByRestaurantId?restaurantId=' + id);
   }
 }
