@@ -49,9 +49,9 @@
           </span></td>
           <td>   <span style="flex:2; display: flex; justify-content: center;">
               <span class="size">
-                  <i class="fa fa-minus-square"  aria-hidden="true" (click)="subtract(table)"></i>
+                  <i class="fa fa-minus-square" style="cursor: pointer;"  aria-hidden="true" (click)="subtract(table)"></i>
                   <input  class="form-control text-center" [(ngModel)] ="table.Size">
-                  <i class="fa fa-plus-square" aria-hidden="true" (click)="add(table)" ></i>
+                  <i class="fa fa-plus-square" style="cursor: pointer;" aria-hidden="true" (click)="add(table)" ></i>
               </span>
           </span></td>
           <td><span style="flex:2; display: flex; justify-content: center;">
@@ -60,12 +60,10 @@
           <td>  <div class="form-group" style="flex:2; margin-bottom: 0px; margin: 5px; display: flex;
             justify-content: center; width: 100%">
                     <select class="form-control"  id="sel1" [(ngModel)]='table.Status'>
-                      <option>RES</option>
-                      <option>UN</option>
-                      <option>OC</option>
+                      <option>{{table.Status}}</option>
                     </select>
                   </div></td>
-          <td><span class="buttons">
+          <td><span class="buttons" style="cursor: pointer;">
               <span (click)="editTable(table)" class="marginleft20" style="color: green;"><i class="fa fa-check " aria-hidden="true"></i></span>
               <span (click)="deleteTable(table)" class="marginleft20" style="color: crimson" ><i class="fa fa-trash-o" aria-hidden="true"></i></span>
             </span></td>
@@ -91,22 +89,22 @@
                         <label for="size">Size</label>
                         <input type="number" class="form-control" formControlName="Size" id="size" required>
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                             <label for="time">Time</label>
-                            <input type="text" class="form-control" formControlName="Time" id="time" required>
-                          </div>
+                            <input type="number" class="form-control" formControlName="Time" id="time" required>
+                          </div> -->
                     <!-- <div class="form-group">
                       <label for="status">Status</label>
                       <input type="text" class="form-control" formControlName="Status" id="status">
                     </div> -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                             <label for="status">Status</label>
                          <select class="form-control"  formControlName="Status" id="status" required>
               <option>RES</option>
               <option>UN</option>
               <option>OC</option>
             </select>
-          </div>
+          </div> -->
                     
                   </form>
               </div>

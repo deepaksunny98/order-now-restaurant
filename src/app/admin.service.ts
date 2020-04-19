@@ -15,20 +15,20 @@ export class AdminService {
   }
 
   getRestaurantByUserId(userId: number) {
-    return this.httpClient.get(`${environment.API_URL}/admin/getRestaurantByUserId?userId=${userId}`)
+    return this.httpClient.get(`${environment.API_URL}/admin/getRestaurantByUserId?userId=${userId}`);
   }
 
-  getTables() {
-    return this.httpClient.get(environment.API_URL + 'tables');
+  getTables(restaurantId) {
+    return this.httpClient.get(environment.API_URL + '/admin/getTablesByResId?restaurantId=' + restaurantId);
   }
   editTable(data) {
-    return this.httpClient.post(environment.API_URL + 'tables', data);
+    return this.httpClient.put(environment.API_URL + '/admin/tables', data);
   }
   deleteTable(tableId) {
-    return this.httpClient.delete(environment.API_URL + 'tables/' + tableId);
+    return this.httpClient.delete(environment.API_URL + `/admin/tables/${tableId}` );
   }
   createTable(data) {
-    return this.httpClient.post(environment.API_URL + 'tables', data);
+    return this.httpClient.post(environment.API_URL + '/admin/tables', data);
   }
 
   getMenu(id) {
