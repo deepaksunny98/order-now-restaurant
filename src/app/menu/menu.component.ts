@@ -15,13 +15,14 @@ import { AdminService } from '../admin.service';
 export class MenuComponent implements OnInit {
   addItemForm = this.fb.group({
     Name: ['', Validators.required],
+    ImageUrl: ['', Validators.required],
     PreparationTime: ['', Validators.required],
     Amount: ['', Validators.required],
-    CategoryId: ['', Validators.required],
+    Type: ['', Validators.required],
   });
   food = {
     type1: 'Starters',
-    type2: 'Main Course',
+    type2: 'MainCourse',
     type3: 'Beverages',
     type4: 'Others',
   };
@@ -35,28 +36,7 @@ export class MenuComponent implements OnInit {
   maincourse: any[] = [];
   beverages: any[] = [];
   others: any[] = [];
-  // Staters = [
-  //   { Name: 'Stater1', PreparationTime: 20, Amount: 200 },
-  //   { Name: 'Stater1', PreparationTime: 20, Amount: 200 },
-  //   { Name: 'Stater1', PreparationTime: 20, Amount: 200 },
-  // ];
-  // maincourse = [
-  //   { Name: 'maincourse1', PreparationTime: 25, Amount: 250 },
-  //   { Name: 'maincourse1', PreparationTime: 25, Amount: 250 },
-  //   { Name: 'maincourse1', PreparationTime: 25, Amount: 250 },
-  //   { Name: 'maincourse1', PreparationTime: 25, Amount: 250 },
-  // ];
-  // beverages = [
-  //   { Name: 'beverages1', PreparationTime: 10, Amount: 50 },
-  //   { Name: 'beverages1', PreparationTime: 10, Amount: 50 },
-  //   { Name: 'beverages1', PreparationTime: 10, Amount: 50 },
-  //   { Name: 'beverages1', PreparationTime: 10, Amount: 50 },
-  //   { Name: 'beverages1', PreparationTime: 10, Amount: 50 },
-  // ];
-  // others = [
-  //   { Name: 'others1', PreparationTime: 10, Amount: 30 },
-  //   { Name: 'others1', PreparationTime: 10, Amount: 30 },
-  // ];
+
 
   ngOnInit() {
     this.getMenu();
@@ -77,10 +57,8 @@ export class MenuComponent implements OnInit {
     this.addItemForm.reset();
   }
   SaveItem(data) {
-    data.ImageUrl = null;
-    data.MenuId = null;
-    data.OrderedCount = null;
     data.RestaurantId = 1;
+    console.log(data);
     this.service.createMenu(data).subscribe((res) => {
       this.getMenu();
     });

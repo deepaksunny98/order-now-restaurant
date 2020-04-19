@@ -19,15 +19,19 @@ export class OrdersComponent implements OnInit {
   });
 
   constructor(private service: AdminService, private location: Location, private fb: FormBuilder) { }
-  // orders: any;
-orders = [
-  {OrderId: '1234', MenuId: ['Chicken tikka kebab', 'Butter naan1'], TableNo: 2, Amount: 200, PreparationTime: 45 , OrderedTime: '10:00'},
-  {OrderId: '1235', MenuId: ['Chicken tikka kebab', 'Butter naan2'], TableNo: 3, Amount: 300, PreparationTime: 35, OrderedTime: '11:00'},
-  {OrderId: '1236', MenuId: ['Chicken tikka kebab', 'Butter naan3'], TableNo: 4, Amount: 250, PreparationTime: 60, OrderedTime: '11:30'},
-  {OrderId: '1237', MenuId: ['Chicken tikka kebab', 'Butter naan4'], TableNo: 1, Amount: 450, PreparationTime: 40, OrderedTime: '12:00'}
-];
+  orders: any;
+// orders = [
+//   {orderId: '1234', menuItems: [{item:'Chicken tikka kebab', quantity: 3, price: 120},{item: 'Butter naan1', quantity: 2, price: 30}]
+//   , TableNo: 2, phoneNumber:'9999999999', name: 'hello',tableNo: 1, amount: 200, preparationTime: 45 , orderedTime: '10:00'},
+//   {orderId: '1235', menuItems: [{item:'Chicken tikka kebab', quantity: 3, price: 120},
+//   {item: 'Butter naan1', quantity: 2, price: 30}], tableNo: 3, phoneNumber:'9999999999', name: 'hello', amount: 300, preparationTime: 35, orderedTime: '11:00'},
+//   {orderId: '1236', menuItems: [{item:'Chicken tikka kebab', quantity: 3, price: 120},
+//   {item: 'Butter naan1', quantity: 2, price: 30}], tableNo: 4, phoneNumber:'9999999999', name: 'hello', amount: 250, preparationTime: 60, orderedTime: '11:30'},
+//   {orderId: '1237', menuItems: [{item:'Chicken tikka kebab', quantity: 3, price: 120},
+//   {item: 'Butter naan1', quantity: 2, price: 30}], tableNo: 1, phoneNumber:'9999999999', name: 'hello', amount: 450, preparationTime: 40, orderedTime: '12:00'}
+// ];
   ngOnInit() {
-    // this.getAllOrders();
+    this.getAllOrders();
       }
 
       editOrder(order) {
@@ -49,11 +53,11 @@ orders = [
       SaveOrder(order) {
         console.log('Details', order);
       }
-      // getAllOrders() {
-      //   this.service.getAllOrders(1).subscribe(res => {
-      //     console.log('resres', res);
-      //     this.orders = res;
-      //   });
-      // }
+      getAllOrders() {
+        const restId = sessionStorage.getItem('restaurantId');
+        this.service.getAllOrders(restId).subscribe(res => {
+          this.orders = res;
+        });
+      }
     }
 

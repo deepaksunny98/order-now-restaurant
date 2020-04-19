@@ -16,18 +16,29 @@
     <div class="card">
       <div class="card-header">
         <a class="card-link" data-toggle="collapse" href="#collapseOne{{i}}">
-          <h6 style="flex: 1;" class="text-center">{{order.OrderId}}</h6>
-          <h6 style="flex: 1;" class="text-center">{{order.TableNo}}</h6>
-          <h6 style="flex: 1;" class="text-center">{{order.Amount}}</h6>
-          <h6 style="flex: 1;" class="text-center">{{order.PreparationTime}}</h6>
-          <h6 style="flex: 1;" class="text-center">{{order.OrderedTime}}</h6>
+          <h6 style="flex: 1;" class="text-center">{{order.orderId}}</h6>
+          <h6 style="flex: 1;" class="text-center">{{order.tableNo}}</h6>
+          <h6 style="flex: 1;" class="text-center">{{order.amount}}</h6>
+          <h6 style="flex: 1;" class="text-center">{{order.preparationTime}}</h6>
+          <h6 style="flex: 1;" class="text-center">{{order.orderedTime}}</h6>
           <h6  style="flex: 1; color: green; font-size: 19px;" class="text-center" (click)="editOrder(order)" data-toggle="modal" data-target="#myModal" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></h6>
            
         </a>
       </div>
       <div id="collapseOne{{i}}" class="collapse show" data-parent="#accordion">
-        <div class="card-body">
-            <span>{{order.MenuId}}</span>
+        <div class="card-body" style="display: flex;">
+          <div style="width: 50%;">
+            <div *ngFor="let menu of order.menuItems" style="display: flex; justify-content:space-around">
+              <h5 style="width: 200px">{{menu.item}}</h5>
+              <p style="width: 75px;">quantity: {{menu.quantity}}</p>
+              <p><i class="fa fa-inr" aria-hidden="true"></i>{{menu.price}}</p>
+            </div>
+          </div>
+            <div style="width: 50%;display: flex;
+            justify-content: space-around;"> 
+              <h5>{{order.name}}</h5>
+              <h5>{{order.phoneNumber}}</h5>
+            </div>
         </div>
       </div>
     </div>

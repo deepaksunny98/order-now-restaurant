@@ -37,16 +37,16 @@ export class AdminService {
     );
   }
   createMenu(data) {
-    return this.httpClient.post(environment.API_URL + 'menu', data);
+    return this.httpClient.post(environment.API_URL + '/admin/menu', data);
   }
   deleteMenu(menuId) {
-    return this.httpClient.delete(environment.API_URL + 'menu/' + menuId);
+    return this.httpClient.delete(environment.API_URL + '/admin/menu/' + menuId);
   }
   updatemenu(data) {
-    return this.httpClient.post(environment.API_URL + 'menu', data);
+    return this.httpClient.put(environment.API_URL + '/admin/menu', data);
   }
 
   getAllOrders(id) {
-    return this.httpClient.get(environment.API_URL + 'orferByResId/' + id);
+    return this.httpClient.get(environment.API_URL + 'orderByResId/' + id);
   }
 }

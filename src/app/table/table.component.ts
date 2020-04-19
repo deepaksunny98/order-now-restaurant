@@ -38,7 +38,10 @@ export class TableComponent implements OnInit {
 
   getTables() {
   this.service.getTables(this.restuarentId).subscribe( res => {
-    this.Tables = res;
+    if(res) {
+      this.Tables = res;
+    }
+    console.log('this.Tables', this.Tables);
     });
   }
   add(data) {
